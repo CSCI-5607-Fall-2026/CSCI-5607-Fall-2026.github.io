@@ -114,39 +114,39 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_canvas_v
 </div><!--header-->
 <div class="contents">
 
-<p>Displays a fixed-pixel-dimension 2D buffer (via a <a class="el" href="class_texture2_d.html" title="A wrapper around a 2D texture that supports loading images from files or setting texture color data d...">Texture2D</a> already holding its current contents) letterboxed/pillarboxed within a <a class="el" href="class_graphics_app.html" title="This is the main application base class for the GfxCore Toolkit.">GraphicsApp</a>'s own content area &ndash; shown at the largest uniform scale that fits without cropping or distortion (a "contain" fit, via <a class="el" href="rect__fit_8h.html#ae2f59be9079c141f75b392afb1187910" title="Fits content_aspect within an avail_width x avail_height box, centered (&quot;contain&quot; fit – shown at the ...">FitAspect()</a>), centered, with the leftover margin on whichever axis doesn't exactly fit cleared to a fixed background color.  
+<p>Displays a fixed-pixel-dimension 2D canvas (via a <a class="el" href="class_texture2_d.html" title="A wrapper around a 2D texture that supports loading images from files or setting texture color data d...">Texture2D</a> already holding its current contents) letterboxed/pillarboxed within a <a class="el" href="class_graphics_app.html" title="This is the main application base class for the GfxCore Toolkit.">GraphicsApp</a>'s own content area &ndash; the drawable region of the window below any reserved toolbar strip (<a class="el" href="class_graphics_app.html#a3933dbecacd8e1487854babaa691f0c1" title="The width available to DrawUsingOpenGL() once SetContentViewportTopInset() has reserved space off the...">GraphicsApp::content_width()</a>/ content_height()/content_viewport_top_inset()), which almost never has the same aspect ratio as the canvas itself.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="canvas__view_8h_source.html">canvas_view.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a540321f30f1a169f2946b0d8d0d93a42" id="r_a540321f30f1a169f2946b0d8d0d93a42"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a540321f30f1a169f2946b0d8d0d93a42">CanvasView</a> (int buffer_width, int buffer_height, float content_x, float content_y, float content_width, float content_height, int content_framebuffer_width, int content_framebuffer_height)</td></tr>
-<tr class="memdesc:a540321f30f1a169f2946b0d8d0d93a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffer_width/buffer_height are the fixed pixel dimensions of the content being displayed (e.g. PixelBuffer::width()/height()). content_x/content_y/content_width/content_height are the window's own content area, in screen coordinates. content_framebuffer_width/content_framebuffer_height are that same content area's actual framebuffer pixel dimensions (may differ from content_width()/content_height() on a high-DPI display), for the actual glViewport() call <a class="el" href="#a0dd387dd14c9ea9c4768bcfc9cfa01b6" title="Clears the content area&#39;s own framebuffer rectangle to background_color, then draws texture (expected...">DrawLetterboxed()</a> makes.  <br /></td></tr>
+<tr class="memitem:a432cd20ba7014142f482f3bd38345f86" id="r_a432cd20ba7014142f482f3bd38345f86"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a432cd20ba7014142f482f3bd38345f86">CanvasView</a> (int canvas_width, int canvas_height, float content_x, float content_y, float content_width, float content_height, int content_framebuffer_width, int content_framebuffer_height)</td></tr>
+<tr class="memdesc:a432cd20ba7014142f482f3bd38345f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">canvas_width/canvas_height are the fixed pixel dimensions of the canvas being displayed (e.g. PixelBuffer::width()/height()). content_x/content_y/content_width/content_height are the window's own content area (the drawable region below any reserved toolbar), in screen coordinates &ndash; content_x/content_y is where that region starts, offset down from the window's own top-left corner. content_framebuffer_width/ content_framebuffer_height are that same content area's actual framebuffer pixel dimensions (may differ from content_width()/ content_height() on a high-DPI display), for the actual glViewport() call <a class="el" href="#a0dd387dd14c9ea9c4768bcfc9cfa01b6" title="Clears the content area&#39;s own framebuffer rectangle to background_color, then draws texture (expected...">DrawLetterboxed()</a> makes.  <br /></td></tr>
 <tr class="memitem:a1e975536bd1e47582f7009bbf9dfa7f6" id="r_a1e975536bd1e47582f7009bbf9dfa7f6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1e975536bd1e47582f7009bbf9dfa7f6">ScreenToBuffer</a> (float screen_x, float screen_y, float *buffer_x, float *buffer_y) const</td></tr>
-<tr class="memdesc:a1e975536bd1e47582f7009bbf9dfa7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a raw mouse/screen position (screen coordinates, top-left origin) into buffer-pixel coordinates. A position outside the fitted rect (the letterbox/pillarbox margin) simply maps outside [0, buffer_width] x [0, buffer_height] rather than being special-cased.  <br /></td></tr>
+<tr class="memdesc:a1e975536bd1e47582f7009bbf9dfa7f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a raw mouse/screen position (screen coordinates, top-left origin) into canvas-pixel coordinates. A position outside the fitted rect (the letterbox/pillarbox margin) simply maps outside [0, canvas_width] x [0, canvas_height] rather than being special-cased. Still named ...ToBuffer() rather than ...ToCanvas(), pending a repo-wide pass tonight &ndash; every other assignment using <a class="el" href="class_graphics_app.html" title="This is the main application base class for the GfxCore Toolkit.">GraphicsApp</a>'s own content_* naming needs updating in the same pass, not just this one.  <br /></td></tr>
 <tr class="memitem:acf4c067873690dc325a633aa3beb9c68" id="r_acf4c067873690dc325a633aa3beb9c68"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acf4c067873690dc325a633aa3beb9c68">ScreenVectorToBuffer</a> (float screen_dx, float screen_dy, float *buffer_dx, float *buffer_dy) const</td></tr>
-<tr class="memdesc:acf4c067873690dc325a633aa3beb9c68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="#a1e975536bd1e47582f7009bbf9dfa7f6" title="Converts a raw mouse/screen position (screen coordinates, top-left origin) into buffer-pixel coordina...">ScreenToBuffer()</a>, but for a displacement (a mouse delta) rather than a position &ndash; no origin to translate through, just the same uniform scale factor the fitted rect implies.  <br /></td></tr>
+<tr class="memdesc:acf4c067873690dc325a633aa3beb9c68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="#a1e975536bd1e47582f7009bbf9dfa7f6" title="Converts a raw mouse/screen position (screen coordinates, top-left origin) into canvas-pixel coordina...">ScreenToBuffer()</a>, but for a displacement (a mouse delta) rather than a position &ndash; no origin to translate through, just the same uniform scale factor the fitted rect implies.  <br /></td></tr>
 <tr class="memitem:a0dd387dd14c9ea9c4768bcfc9cfa01b6" id="r_a0dd387dd14c9ea9c4768bcfc9cfa01b6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0dd387dd14c9ea9c4768bcfc9cfa01b6">DrawLetterboxed</a> (const <a class="el" href="class_texture2_d.html">Texture2D</a> &amp;texture, const <a class="el" href="class_color.html">Color</a> &amp;background_color) const</td></tr>
-<tr class="memdesc:a0dd387dd14c9ea9c4768bcfc9cfa01b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the content area's own framebuffer rectangle to background_color, then draws texture (expected to already hold the buffer's own current contents) into the fitted rect, restoring the full content-area viewport afterward so whatever's drawn next isn't clipped to the letterboxed rect too.  <br /></td></tr>
+<tr class="memdesc:a0dd387dd14c9ea9c4768bcfc9cfa01b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the content area's own framebuffer rectangle to background_color, then draws texture (expected to already hold the canvas's own current contents) into the fitted rect, restoring the full content-area viewport afterward so whatever's drawn next isn't clipped to the letterboxed rect too.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Displays a fixed-pixel-dimension 2D buffer (via a <a class="el" href="class_texture2_d.html" title="A wrapper around a 2D texture that supports loading images from files or setting texture color data d...">Texture2D</a> already holding its current contents) letterboxed/pillarboxed within a <a class="el" href="class_graphics_app.html" title="This is the main application base class for the GfxCore Toolkit.">GraphicsApp</a>'s own content area &ndash; shown at the largest uniform scale that fits without cropping or distortion (a "contain" fit, via <a class="el" href="rect__fit_8h.html#ae2f59be9079c141f75b392afb1187910" title="Fits content_aspect within an avail_width x avail_height box, centered (&quot;contain&quot; fit – shown at the ...">FitAspect()</a>), centered, with the leftover margin on whichever axis doesn't exactly fit cleared to a fixed background color. </p>
-<p>Also converts between the window's own screen coordinates (top-left origin, matching mouse event coordinates) and buffer-pixel coordinates through that same fit, so a click anywhere in the letterbox margin simply maps outside [0, buffer_width] x [0, buffer_height] rather than needing special- casing.</p>
-<p>A plain value type: build a fresh <a class="el" href="class_canvas_view.html" title="Displays a fixed-pixel-dimension 2D buffer (via a Texture2D already holding its current contents) let...">CanvasView</a> everywhere it's needed rather than caching one, since the content area's own size can change (window resize) between one call and the next.</p>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a540321f30f1a169f2946b0d8d0d93a42">CanvasView</a> view(canvas.width(), canvas.height(), 0.0f,</div>
+<div class="textblock"><p>Displays a fixed-pixel-dimension 2D canvas (via a <a class="el" href="class_texture2_d.html" title="A wrapper around a 2D texture that supports loading images from files or setting texture color data d...">Texture2D</a> already holding its current contents) letterboxed/pillarboxed within a <a class="el" href="class_graphics_app.html" title="This is the main application base class for the GfxCore Toolkit.">GraphicsApp</a>'s own content area &ndash; the drawable region of the window below any reserved toolbar strip (<a class="el" href="class_graphics_app.html#a3933dbecacd8e1487854babaa691f0c1" title="The width available to DrawUsingOpenGL() once SetContentViewportTopInset() has reserved space off the...">GraphicsApp::content_width()</a>/ content_height()/content_viewport_top_inset()), which almost never has the same aspect ratio as the canvas itself. </p>
+<p>Shown at the largest uniform scale that fits without cropping or distortion (a "contain" fit, via <a class="el" href="rect__fit_8h.html#ae2f59be9079c141f75b392afb1187910" title="Fits content_aspect within an avail_width x avail_height box, centered (&quot;contain&quot; fit – shown at the ...">FitAspect()</a>), centered, with the leftover margin on whichever axis doesn't exactly fit cleared to a fixed background color. Also converts between the window's own screen coordinates (top-left origin, matching mouse event coordinates) and canvas-pixel coordinates through that same fit, so a click anywhere in the letterbox margin simply maps outside [0, canvas_width] x [0, canvas_height] rather than needing special-casing.</p>
+<p>A plain value type: build a fresh <a class="el" href="class_canvas_view.html" title="Displays a fixed-pixel-dimension 2D canvas (via a Texture2D already holding its current contents) let...">CanvasView</a> everywhere it's needed rather than caching one, since the content area's own size can change (window resize) between one call and the next.</p>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a432cd20ba7014142f482f3bd38345f86">CanvasView</a> view(canvas.width(), canvas.height(), 0.0f,</div>
 <div class="line">                content_viewport_top_inset(),</div>
 <div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(content_width()),</div>
 <div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(content_height()),</div>
 <div class="line">                content_framebuffer_width(), content_framebuffer_height());</div>
 <div class="line">view.DrawLetterboxed(canvas_tex, <a class="code hl_function" href="class_color.html#a9a742cbe9f9f4037f5d9f4e81a9b2428">Color</a>(0.15f, 0.15f, 0.15f, 1.0f));</div>
-<div class="ttc" id="aclass_canvas_view_html_a540321f30f1a169f2946b0d8d0d93a42"><div class="ttname"><a href="#a540321f30f1a169f2946b0d8d0d93a42">CanvasView::CanvasView</a></div><div class="ttdeci">CanvasView(int buffer_width, int buffer_height, float content_x, float content_y, float content_width, float content_height, int content_framebuffer_width, int content_framebuffer_height)</div><div class="ttdoc">buffer_width/buffer_height are the fixed pixel dimensions of the content being displayed (e....</div></div>
+<div class="ttc" id="aclass_canvas_view_html_a432cd20ba7014142f482f3bd38345f86"><div class="ttname"><a href="#a432cd20ba7014142f482f3bd38345f86">CanvasView::CanvasView</a></div><div class="ttdeci">CanvasView(int canvas_width, int canvas_height, float content_x, float content_y, float content_width, float content_height, int content_framebuffer_width, int content_framebuffer_height)</div><div class="ttdoc">canvas_width/canvas_height are the fixed pixel dimensions of the canvas being displayed (e....</div></div>
 <div class="ttc" id="aclass_color_html_a9a742cbe9f9f4037f5d9f4e81a9b2428"><div class="ttname"><a href="class_color.html#a9a742cbe9f9f4037f5d9f4e81a9b2428">Color::Color</a></div><div class="ttdeci">Color()</div><div class="ttdoc">Defaults to black.</div></div>
 </div><!-- fragment --> 
-<p class="definition">Definition at line <a class="el" href="canvas__view_8h_source.html#l00045">45</a> of file <a class="el" href="canvas__view_8h_source.html">canvas_view.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="canvas__view_8h_source.html#l00048">48</a> of file <a class="el" href="canvas__view_8h_source.html">canvas_view.h</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a540321f30f1a169f2946b0d8d0d93a42" name="a540321f30f1a169f2946b0d8d0d93a42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a540321f30f1a169f2946b0d8d0d93a42">&#9670;&#160;</a></span>CanvasView()</h2>
+<a id="a432cd20ba7014142f482f3bd38345f86" name="a432cd20ba7014142f482f3bd38345f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a432cd20ba7014142f482f3bd38345f86">&#9670;&#160;</a></span>CanvasView()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,12 +154,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">CanvasView::CanvasView </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>buffer_width</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>canvas_width</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>buffer_height</em></span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>canvas_height</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -194,7 +194,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>buffer_width/buffer_height are the fixed pixel dimensions of the content being displayed (e.g. PixelBuffer::width()/height()). content_x/content_y/content_width/content_height are the window's own content area, in screen coordinates. content_framebuffer_width/content_framebuffer_height are that same content area's actual framebuffer pixel dimensions (may differ from content_width()/content_height() on a high-DPI display), for the actual glViewport() call <a class="el" href="#a0dd387dd14c9ea9c4768bcfc9cfa01b6" title="Clears the content area&#39;s own framebuffer rectangle to background_color, then draws texture (expected...">DrawLetterboxed()</a> makes. </p>
+<p>canvas_width/canvas_height are the fixed pixel dimensions of the canvas being displayed (e.g. PixelBuffer::width()/height()). content_x/content_y/content_width/content_height are the window's own content area (the drawable region below any reserved toolbar), in screen coordinates &ndash; content_x/content_y is where that region starts, offset down from the window's own top-left corner. content_framebuffer_width/ content_framebuffer_height are that same content area's actual framebuffer pixel dimensions (may differ from content_width()/ content_height() on a high-DPI display), for the actual glViewport() call <a class="el" href="#a0dd387dd14c9ea9c4768bcfc9cfa01b6" title="Clears the content area&#39;s own framebuffer rectangle to background_color, then draws texture (expected...">DrawLetterboxed()</a> makes. </p>
 
 </div>
 </div>
@@ -218,7 +218,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Clears the content area's own framebuffer rectangle to background_color, then draws texture (expected to already hold the buffer's own current contents) into the fitted rect, restoring the full content-area viewport afterward so whatever's drawn next isn't clipped to the letterboxed rect too. </p>
+<p>Clears the content area's own framebuffer rectangle to background_color, then draws texture (expected to already hold the canvas's own current contents) into the fitted rect, restoring the full content-area viewport afterward so whatever's drawn next isn't clipped to the letterboxed rect too. </p>
 
 </div>
 </div>
@@ -251,7 +251,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Converts a raw mouse/screen position (screen coordinates, top-left origin) into buffer-pixel coordinates. A position outside the fitted rect (the letterbox/pillarbox margin) simply maps outside [0, buffer_width] x [0, buffer_height] rather than being special-cased. </p>
+<p>Converts a raw mouse/screen position (screen coordinates, top-left origin) into canvas-pixel coordinates. A position outside the fitted rect (the letterbox/pillarbox margin) simply maps outside [0, canvas_width] x [0, canvas_height] rather than being special-cased. Still named ...ToBuffer() rather than ...ToCanvas(), pending a repo-wide pass tonight &ndash; every other assignment using <a class="el" href="class_graphics_app.html" title="This is the main application base class for the GfxCore Toolkit.">GraphicsApp</a>'s own content_* naming needs updating in the same pass, not just this one. </p>
 
 </div>
 </div>
@@ -284,7 +284,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Same as <a class="el" href="#a1e975536bd1e47582f7009bbf9dfa7f6" title="Converts a raw mouse/screen position (screen coordinates, top-left origin) into buffer-pixel coordina...">ScreenToBuffer()</a>, but for a displacement (a mouse delta) rather than a position &ndash; no origin to translate through, just the same uniform scale factor the fitted rect implies. </p>
+<p>Same as <a class="el" href="#a1e975536bd1e47582f7009bbf9dfa7f6" title="Converts a raw mouse/screen position (screen coordinates, top-left origin) into canvas-pixel coordina...">ScreenToBuffer()</a>, but for a displacement (a mouse delta) rather than a position &ndash; no origin to translate through, just the same uniform scale factor the fitted rect implies. </p>
 
 </div>
 </div>

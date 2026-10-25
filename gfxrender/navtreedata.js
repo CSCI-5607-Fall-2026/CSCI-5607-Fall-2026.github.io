@@ -52,7 +52,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"gouraud__shader_8h.html"
+"index.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

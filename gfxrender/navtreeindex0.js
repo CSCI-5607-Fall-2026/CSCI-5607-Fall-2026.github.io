@@ -26,11 +26,8 @@ var NAVTREEINDEX0 =
 "class_camera_presets_panel.html":[0,0,3],
 "class_camera_presets_panel.html#a01f759b2a30efa3a33089f06b62c8b58":[0,0,3,1],
 "class_camera_presets_panel.html#a764e081d3fcfb65d854181d49f2f1229":[0,0,3,0],
-"class_camera_presets_panel.html#a764e081d3fcfb65d854181d49f2f1229a576be22c65c91ad745a275f8b69243ec":[0,0,3,0,4],
+"class_camera_presets_panel.html#a764e081d3fcfb65d854181d49f2f1229a576be22c65c91ad745a275f8b69243ec":[0,0,3,0,1],
 "class_camera_presets_panel.html#a764e081d3fcfb65d854181d49f2f1229a5fea5f9e6805306172d21bda9aa1732e":[0,0,3,0,0],
-"class_camera_presets_panel.html#a764e081d3fcfb65d854181d49f2f1229aaaad15d52463af37bebb1d25383766c8":[0,0,3,0,3],
-"class_camera_presets_panel.html#a764e081d3fcfb65d854181d49f2f1229aaff2a7b1853dec77630c7d7abad9f0b6":[0,0,3,0,1],
-"class_camera_presets_panel.html#a764e081d3fcfb65d854181d49f2f1229ab3b76aa7757acf69d8f89a58ae541bf9":[0,0,3,0,2],
 "class_camera_presets_panel.html#aa58a59fedddcb42051ac04d1ff1a6b75":[0,0,3,2],
 "class_create_object_panel.html":[0,0,4],
 "class_create_object_panel.html#a1569de672a431271feeacd6f067d29e8":[0,0,4,2],
@@ -249,5 +246,8 @@ var NAVTREEINDEX0 =
 "globals.html":[1,1,0],
 "globals_enum.html":[1,1,3],
 "globals_func.html":[1,1,1],
-"globals_vars.html":[1,1,2]
+"globals_vars.html":[1,1,2],
+"gouraud__shader_8h.html":[1,0,0,0,0,4],
+"gouraud__shader_8h_source.html":[1,0,0,0,0,4],
+"hierarchy.html":[0,2]
 };

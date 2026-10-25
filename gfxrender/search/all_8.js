@@ -13,15 +13,12 @@ var searchData=
   ['kobj_10',['kObj',['../class_scene_panel.html#aff4dbe08e5ef80bd9cd69696fa5b94cdaf96ae17664d4b51f9d3fb47bceb3807f',1,'ScenePanel']]],
   ['korbit_11',['kOrbit',['../class_camera_control_mode_panel.html#add663886b63567a0f8890c0041205d90abf9bb4db488bf70fc4a1872b023d0c8a',1,'CameraControlModePanel']]],
   ['kphong_12',['kPhong',['../class_material_panel.html#a92faa3dee42d43c629156d4bf1c0f027ac8a599acb895a172f6571154e0f6b882',1,'MaterialPanel::kPhong'],['../scene__io_8h.html#ac2a34be3f5cbd0db4c2231365f66de4da4ce6b17d54cc7c9a50a07816380a5045',1,'kPhong:&#160;scene_io.h']]],
-  ['kplusx_13',['kPlusX',['../class_camera_presets_panel.html#a764e081d3fcfb65d854181d49f2f1229aaff2a7b1853dec77630c7d7abad9f0b6',1,'CameraPresetsPanel']]],
-  ['kplusy_14',['kPlusY',['../class_camera_presets_panel.html#a764e081d3fcfb65d854181d49f2f1229ab3b76aa7757acf69d8f89a58ae541bf9',1,'CameraPresetsPanel']]],
-  ['kplusz_15',['kPlusZ',['../class_camera_presets_panel.html#a764e081d3fcfb65d854181d49f2f1229aaaad15d52463af37bebb1d25383766c8',1,'CameraPresetsPanel']]],
-  ['kpoint_16',['kPoint',['../struct_scene_light_entry.html#ab70c0c15087cbaad0de851321a9ca570a57ab4022f6d94b851ba79ab2bd03995b',1,'SceneLightEntry::kPoint'],['../scene__io_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638a20e722b15a1b587c30633f0a136b7009',1,'kPoint:&#160;scene_io.h']]],
-  ['krotate_17',['kRotate',['../class_object_mode_panel.html#a371d6c1a722342d3cbbb3e576f8732caaa9ffa5ee74313040b67a3aeb558c80e4',1,'ObjectModePanel']]],
-  ['kscale_18',['kScale',['../class_object_mode_panel.html#a371d6c1a722342d3cbbb3e576f8732caa7cb445f8d460af306017636743e1856d',1,'ObjectModePanel']]],
-  ['kscene_19',['kScene',['../class_scene_panel.html#aff4dbe08e5ef80bd9cd69696fa5b94cda2b06e4758236f79380de322cd910002b',1,'ScenePanel']]],
-  ['kselect_20',['kSelect',['../class_object_mode_panel.html#a371d6c1a722342d3cbbb3e576f8732caa480ea3fc90a8578158eda4e7904f2cdb',1,'ObjectModePanel']]],
-  ['ksphere_21',['kSphere',['../class_create_object_panel.html#a5dc9fd7045829624ebbbf36b944601bda3537ae39332d011269a5ea9a3976c058',1,'CreateObjectPanel']]],
-  ['ktranslate_22',['kTranslate',['../class_object_mode_panel.html#a371d6c1a722342d3cbbb3e576f8732caad6a6bfb558c10d1d9145028bda327116',1,'ObjectModePanel']]],
-  ['kunlit_23',['kUnlit',['../class_material_panel.html#a92faa3dee42d43c629156d4bf1c0f027ab2d99201b8d01089d8e49beb290f4541',1,'MaterialPanel::kUnlit'],['../scene__io_8h.html#ac2a34be3f5cbd0db4c2231365f66de4da80ed870a23fd38f002faf4487a707b0f',1,'kUnlit:&#160;scene_io.h']]]
+  ['kpoint_13',['kPoint',['../struct_scene_light_entry.html#ab70c0c15087cbaad0de851321a9ca570a57ab4022f6d94b851ba79ab2bd03995b',1,'SceneLightEntry::kPoint'],['../scene__io_8h.html#adc3ec8293e6a97ebe43f0196b9a7f638a20e722b15a1b587c30633f0a136b7009',1,'kPoint:&#160;scene_io.h']]],
+  ['krotate_14',['kRotate',['../class_object_mode_panel.html#a371d6c1a722342d3cbbb3e576f8732caaa9ffa5ee74313040b67a3aeb558c80e4',1,'ObjectModePanel']]],
+  ['kscale_15',['kScale',['../class_object_mode_panel.html#a371d6c1a722342d3cbbb3e576f8732caa7cb445f8d460af306017636743e1856d',1,'ObjectModePanel']]],
+  ['kscene_16',['kScene',['../class_scene_panel.html#aff4dbe08e5ef80bd9cd69696fa5b94cda2b06e4758236f79380de322cd910002b',1,'ScenePanel']]],
+  ['kselect_17',['kSelect',['../class_object_mode_panel.html#a371d6c1a722342d3cbbb3e576f8732caa480ea3fc90a8578158eda4e7904f2cdb',1,'ObjectModePanel']]],
+  ['ksphere_18',['kSphere',['../class_create_object_panel.html#a5dc9fd7045829624ebbbf36b944601bda3537ae39332d011269a5ea9a3976c058',1,'CreateObjectPanel']]],
+  ['ktranslate_19',['kTranslate',['../class_object_mode_panel.html#a371d6c1a722342d3cbbb3e576f8732caad6a6bfb558c10d1d9145028bda327116',1,'ObjectModePanel']]],
+  ['kunlit_20',['kUnlit',['../class_material_panel.html#a92faa3dee42d43c629156d4bf1c0f027ab2d99201b8d01089d8e49beb290f4541',1,'MaterialPanel::kUnlit'],['../scene__io_8h.html#ac2a34be3f5cbd0db4c2231365f66de4da80ed870a23fd38f002faf4487a707b0f',1,'kUnlit:&#160;scene_io.h']]]
 ];
